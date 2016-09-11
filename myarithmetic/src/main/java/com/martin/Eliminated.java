@@ -21,6 +21,8 @@ public class Eliminated {
 
 
 //        Stack<Integer> stack = new Stack<Integer>();
+
+
         List<Integer> orderlist = new Vector<>();
         System.out.print("顺序:");
         System.out.println();
@@ -36,10 +38,10 @@ public class Eliminated {
         for (int i : result) {
             System.out.print(i + " ; ");
         }
-
     }
 
-    //另类的做法，默认list2是可以为空的,也就是说list1是从头开始数的部分
+
+    //比较愚蠢的做法，默认list2是可以为空的,也就是说list1是从头开始数的部分
     public static List<Integer> solve2(List<Integer> list1, List<Integer> list2) {
         int tatolCount = list1.size();
         if (list2 != null && !list2.isEmpty()) {

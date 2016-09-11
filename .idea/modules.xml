@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Arithmetic.iml" filepath="$PROJECT_DIR$/Arithmetic.iml" />
-      <module fileurl="file://$PROJECT_DIR$/myarithmetic/myarithmetic.iml" filepath="$PROJECT_DIR$/myarithmetic/myarithmetic.iml" />
-      <module fileurl="file://$PROJECT_DIR$/programe/programe.iml" filepath="$PROJECT_DIR$/programe/programe.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Arithmetic.iml" filepath="$PROJECT_DIR$/.idea/modules/Arithmetic.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/myarithmetic/myarithmetic.iml" filepath="$PROJECT_DIR$/.idea/modules/myarithmetic/myarithmetic.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/programe/programe.iml" filepath="$PROJECT_DIR$/.idea/modules/programe/programe.iml" />
     </modules>
   </component>
 </project>
