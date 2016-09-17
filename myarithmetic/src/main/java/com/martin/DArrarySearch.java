@@ -5,7 +5,7 @@ package com.martin;
  * 博客：http://www.jianshu.com/users/78f0e5f4a403/latest_articles
  * github：https://github.com/MartinBZDQSM
  * <p/>
- * 题目描述：
+ * 题目描述(来源 剑指Offer)：
  * 在一个二维数组中，
  * 每一行都按照从左到右递增的顺序排序，
  * 每一列都按照从上到下递增的顺序排序。
@@ -23,7 +23,9 @@ public class DArrarySearch {
             }
             System.out.println();
         }
-        System.out.print("Result :" + find3(array, 5));
+        System.out.print("Result find1 :" + find1(array, 5));
+        System.out.print("Result find2 :" + find2(array, 14));
+        System.out.print("Result find3 :" + find3(array, 2));
     }
 
 
