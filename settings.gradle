@@ -1,1 +1,1 @@
-include ':app', ':myarithmetic', ':programe'
+include ':myarithmetic', ':programe'

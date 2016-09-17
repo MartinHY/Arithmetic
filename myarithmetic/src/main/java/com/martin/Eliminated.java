@@ -3,6 +3,7 @@ package com.martin;
 import java.util.List;
 import java.util.Vector;
 
+
 /**
  * 作者：MartinBZDQSM on 2016/9/13 0013.
  * 博客：http://www.jianshu.com/users/78f0e5f4a403/latest_articles
@@ -61,7 +62,7 @@ public class Eliminated {
         }
     }
 
-//    //傻瓜式替换，失败，写的有问题
+//    //听了同事使用栈的方式，感觉怪怪的，还是失败了，应该写的有问题
 //    public static Stack<Integer> solve1(Stack<Integer> stack) {
 //
 //        if (stack.size() > 6) {
