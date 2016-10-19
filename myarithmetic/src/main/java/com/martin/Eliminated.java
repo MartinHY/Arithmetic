@@ -26,7 +26,7 @@ public class Eliminated {
         List<Integer> orderlist = new Vector<>();
         System.out.print("顺序:");
         System.out.println();
-        for (int i = 0; i < 10; i++) {
+        for (int i = 1; i < 11; i++) {
 //            stack.push(i);
             orderlist.add(i);
             System.out.print(i + " ; ");
