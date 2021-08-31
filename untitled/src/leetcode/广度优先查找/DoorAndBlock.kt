@@ -1,4 +1,4 @@
-package leetcode
+package leetcode.广度优先查找
 
 import java.lang.Integer.min
 import java.util.*
