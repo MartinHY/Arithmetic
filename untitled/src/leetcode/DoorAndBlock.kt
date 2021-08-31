@@ -1,5 +1,9 @@
 package leetcode
 
+import java.lang.Integer.min
+import java.util.*
+import kotlin.collections.HashSet
+
 
 /**
  * 作者：MartinBZDQSM on 星期一
@@ -42,47 +46,109 @@ object DoorAndBlock {
                     arrayOf(Int.MAX_VALUE, -1, 0, Int.MAX_VALUE)
                 }
                 1 -> {
-                    arrayOf(2, 2, 1, -1)
+                    arrayOf(Int.MAX_VALUE, Int.MAX_VALUE, Int.MAX_VALUE, -1)
                 }
                 2 -> {
-                    arrayOf(1, -1, 2, -1)
+                    arrayOf(Int.MAX_VALUE, -1, Int.MAX_VALUE, -1)
                 }
                 3 -> {
-                    arrayOf(0, -1, 3, 4)
+                    arrayOf(0, -1, Int.MAX_VALUE, Int.MAX_VALUE)
                 }
                 else -> arrayOf(Int.MAX_VALUE, -1, 0, Int.MAX_VALUE)
             }
         }
-        solution(arrays)
+        solution2(arrays)
+        for (i in arrays.indices) {
+            for (j in 0 until arrays[0].size) {
+                print(arrays[i][j].toString() + " | ")
+            }
+            println()
+        }
     }
 
     /**
      * INF 用 1 来代替
      * 利用 广度优先搜索 来查找最小路径
      */
-    fun solution(arrays: Array<Array<Int>>) {
+    private fun solution(arrays: Array<Array<Int>>) {
         if (arrays.isEmpty()) return
         //先查找到对应门的数量
-        val positions = mutableListOf<Position>()
+        val maxX = arrays.size
+        val maxY = arrays.first().size
         arrays.forEachIndexed { x, ints ->
             ints.forEachIndexed { y, i ->
                 if (i == 0) {
-                    positions.add(Position(x, y))
+                    val queue = LinkedList<Array<Int>>()
+                    val set = HashSet<String>()//防止重复
+                    queue.push(arrayOf(x, y))
+                    set.add("$x$y")
+                    var layer = 1
+                    while (queue.isNotEmpty()) {
+                        val size = queue.size
+                        for (i in 0 until size) {
+                            val target = queue.pop()
+                            val x1 = target[0]
+                            val y1 = target[1]
+
+                            val left = x1 - 1
+                            val right = x1 + 1
+                            val top = y1 - 1
+                            val bottom = y1 + 1
+                            if (top >= 0 && arrays[x1][top] > 0 && !set.contains("$x1$top")) {
+                                queue.add(arrayOf(x1, top))
+                                set.add("$x1$top")
+                                arrays[x1][top] = min(arrays[x1][top], layer)
+                            }
+                            if (left >= 0 && arrays[left][y1] > 0 && !set.contains("$left$y1")) {
+                                queue.add(arrayOf(left, y1))
+                                set.add("$left$y1")
+                                arrays[left][y1] = min(arrays[left][y1], layer)
+                            }
+
+                            if (right < maxX && arrays[right][y1] > 0 && !set.contains("$right$y1")) {
+                                queue.add(arrayOf(right, y1))
+                                set.add("$right$y1")
+                                arrays[right][y1] = min(arrays[right][y1], layer)
+                            }
+
+                            if (bottom < maxY && arrays[x1][bottom] > 0 && !set.contains("$x1$bottom")) {
+                                queue.add(arrayOf(x1, bottom))
+                                set.add("$x1$bottom")
+                                arrays[x1][bottom] = min(arrays[x1][bottom], layer)
+                            }
+                        }
+                        layer++
+                    }
                 }
             }
         }
-        val maxX = arrays.size
-        val maxY = arrays.first().size
-        positions.forEach {
-            //  x- x+ y- y+ 一共四个方向的位移
+    }
 
 
+    /**
+     * INF 用 1 来代替
+     * 利用迭代思想
+     */
+    private fun solution2(arrays: Array<Array<Int>>) {
+        if (arrays.isEmpty()) return
+        arrays.forEachIndexed { x, ints ->
+            ints.forEachIndexed { y, i ->
+                if (i == 0) {//为门时
+                    val set = HashSet<String>()//防止重复
+                    finding(arrays, set, x, y, 0)
+                }
+            }
         }
     }
 
-    /**
-     * 用于位置标记
-     */
-    internal class Position(val x: Int, val y: Int)
-
+    private fun finding(arrays: Array<Array<Int>>, set: HashSet<String>, x: Int, y: Int, count: Int) {
+        if (x < 0 || y < 0 || x >= arrays.size || y >= arrays[0].size || arrays[x][y] < count) {
+            return
+        }
+        arrays[x][y] = min(arrays[x][y], count)
+        finding(arrays, set, x, y - 1, count + 1)
+        finding(arrays, set, x - 1, y, count + 1)
+        finding(arrays, set, x + 1, y, count + 1)
+        finding(arrays, set, x, y + 1, count + 1)
+    }
 }
