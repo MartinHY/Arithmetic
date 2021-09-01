@@ -51,7 +51,20 @@ object LoopLock {
     @JvmStatic
     fun main(args: Array<String>) {
        val size :Int = findLock(arrayOf("8888"),"8888")
+        print("楼梯 : ${climbStairs(4)}")
+    }
 
+    /**
+     * 动态规划
+     */
+    fun climbStairs(n: Int): Int {
+        val dp = IntArray(n + 1)
+        dp[0] = 1
+        dp[1] = 2
+        for (i in 2 until n) {
+            dp[i] = dp[i - 1] + dp[i - 2]
+        }
+        return dp[n - 1]
     }
 
     /**
