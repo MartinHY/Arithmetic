@@ -27,17 +27,17 @@ object SquareNum {
      * 广度优先查找
      */
     private fun solusion(num: Int) {
-        val queue = LinkedList<Int>()
-        val size = Math.sqrt(num.toDouble()).toInt()
-        val minQueueSize = Int.MAX_VALUE
-        for (i in size + 1 downTo  1) {
-            val addtion = i * i
-            queue.push(i)
-            while (queue.isNotEmpty()) {
-                if (addtion <)
-                    queue.push(addtion - 1)
-            }
-        }
+//        val queue = LinkedList<Int>()
+//        val size = Math.sqrt(num.toDouble()).toInt()
+//        val minQueueSize = Int.MAX_VALUE
+//        for (i in size + 1 downTo  1) {
+//            val addtion = i * i
+//            queue.push(i)
+//            while (queue.isNotEmpty()) {
+//                if (addtion <)
+//                    queue.push(addtion - 1)
+//            }
+//        }
     }
 
 
