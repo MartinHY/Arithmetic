@@ -49,7 +49,7 @@ object DArrarySearch {
         val col: Int = array[0].size
         for (x in 0 until row) {
             var sign = (col - 1) / 2
-            while (sign > 0 && sign < col) if (array[x][sign] > target) {
+            while (sign in 1 until col) if (array[x][sign] > target) {
                 sign--
             } else if (array[x][sign] < target) {
                 sign++

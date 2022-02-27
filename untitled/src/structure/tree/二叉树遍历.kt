@@ -10,6 +10,7 @@ import javax.swing.tree.TreeNode
  *
  *
  * 题目描述 :
+ * 二叉树遍历  , 其遍历的顺序实际上是指的根节点的顺序
  */
 object 二叉树遍历 {
     @JvmStatic
